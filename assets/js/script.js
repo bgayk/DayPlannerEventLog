@@ -22,9 +22,8 @@ $(document).ready(function () {
     // console.log(timeBlocks[i].id);
     // return the hour from the id to an integer 
     // Using the Math.Round function to ensure that the timeBlock function name is an integer
-    var timeBlockHour = Math.round(timeBlocks[i].id.split('-')[1],0);
-    
-    console.log(timeBlockHour);
+    var timeBlockHour = Math.round(timeBlocks[i].id.split('-')[1],0);    
+    // console.log(timeBlockHour);
    
     if(timeBlockHour < currentHour){
       // apply the grey color to the time block
