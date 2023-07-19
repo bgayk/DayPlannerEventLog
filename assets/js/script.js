@@ -1,6 +1,26 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+const currentDay = $('#currentDay');
+
+const todaysDate = dayjs().format('dddd, MMMM D, YYYY');
+const currentHour = dayjs().format('H');
+
+// Setting up the current date and time after the page has been loaded
+$(document).ready(function () {
+  currentDay.text(todaysDate);
+  console.log(currentHour);
+  
+  //console.log(todaysDate);
+  // console.log(currentDay);
+  // console.log(currentHour);
+  // console.log(currentDay.text(todaysDate));
+
+
+})
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
