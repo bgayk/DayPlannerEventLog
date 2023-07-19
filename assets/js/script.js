@@ -23,18 +23,29 @@ $(document).ready(function () {
     // return the hour from the id to an integer 
     // Using the Math.Round function to ensure that the timeBlock function name is an integer
     var timeBlockHour = Math.round(timeBlocks[i].id.split('-')[1],0);    
-    // console.log(timeBlockHour);
-   
+    // push console.log(timeBlockHour);
+ 
+    // removing any assigned color band class if present
+    // to ensure we asssign the correct color band class
+
+    if ($(timeBlocks[i]).hasClass('present')) {
+      $(timeBlocks[i]).removeClass('present');
+    };
+
+    if ($(timeBlocks[i]).hasClass('past')) {
+      $(timeBlocks[i]).removeClass('past');
+    };
+
+    if ($(timeBlocks[i]).hasClass('future')) {
+      $(timeBlocks[i]).removeClass('future');
+    };
+
     if(timeBlockHour < currentHour){
-      // apply the grey color to the time block
       $(timeBlocks[i]).addClass('past');
-      // console.log("past");
     } else if (timeBlockHour == currentHour){      
       $(timeBlocks[i]).addClass('present');
-      // console.log("present");
     } else if (timeBlockHour > currentHour){
       $(timeBlocks[i]).addClass('future');
-      // console.log("future");
     };
  
   };
