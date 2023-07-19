@@ -2,24 +2,45 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-
 const currentDay = $('#currentDay');
-
 const todaysDate = dayjs().format('dddd, MMMM D, YYYY');
-const currentHour = dayjs().format('H');
+
+// Get all the time blocks
+const timeBlocks = $('.time-block');
+
+// Using the Math.Round function to ensure that the current hour is an integer
+var currentHour = Math.round(dayjs().format('HH'),0);
 
 // Setting up the current date and time after the page has been loaded
 $(document).ready(function () {
+  // Set the current day to Day Name, Month Nam Day Number and Year Number  
   currentDay.text(todaysDate);
-  console.log(currentHour);
-  
-  //console.log(todaysDate);
-  // console.log(currentDay);
-  // console.log(currentHour);
-  // console.log(currentDay.text(todaysDate));
 
+  // Setting up the time bloc  
+  for(i=0; i<timeBlocks.length; i++) {
+    
+    // console.log(timeBlocks[i].id);
+    // return the hour from the id to an integer 
+    // Using the Math.Round function to ensure that the timeBlock function name is an integer
+    var timeBlockHour = Math.round(timeBlocks[i].id.split('-')[1],0);
+    
+    console.log(timeBlockHour);
+   
+    if(timeBlockHour < currentHour){
+      // apply the grey color to the time block
+      $(timeBlocks[i]).addClass('past');
+      // console.log("past");
+    } else if (timeBlockHour == currentHour){      
+      $(timeBlocks[i]).addClass('present');
+      // console.log("present");
+    } else if (timeBlockHour > currentHour){
+      $(timeBlocks[i]).addClass('future');
+      // console.log("future");
+    };
+ 
+  };
+});
 
-})
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
