@@ -69,6 +69,3 @@ function saveCalendarEntry(event) {
 }
 
 $(document).on('click', '.saveBtn', saveCalendarEntry);
-
-
-
